@@ -1,122 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import Flashcard from './components/Flashcard';
 
-function App() {
-  const [count, setCount] = useState(0)
+const cards = [
+  { question: "This field focuses on building and maintaining websites and web applications.", answer: "Web Development" },
+  { question: "This discipline involves designing, developing, and maintaining software systems.", answer: "Software Engineering" },
+  { question: "This field teaches machines to learn from data and make decisions.", answer: "Artificial Intelligence / Machine Learning" },
+  { question: "This field focuses on protecting computer systems and networks from digital attacks.", answer: "Cybersecurity" },
+  { question: "This field involves analyzing large datasets to extract insights and inform decisions.", answer: "Data Science" },
+  { question: "This field delivers computing services like storage and processing over the internet.", answer: "Cloud Computing" },
+  { question: "This practice combines software development and IT operations to speed up delivery.", answer: "DevOps" },
+  { question: "This field focuses on building applications for smartphones and tablets.", answer: "Mobile Development" },
+  { question: "This field involves designing and developing interactive video games.", answer: "Game Development" },
+  { question: "This field manages the storage, retrieval, and organization of structured data.", answer: "Database Administration" },
+  { question: "This field studies how data is transmitted between computers and devices.", answer: "Computer Networks" },
+  { question: "This field studies how people interact with computers and designs better interfaces.", answer: "Human-Computer Interaction" },
+  { question: "This field programs low-level hardware like microcontrollers and IoT devices.", answer: "Embedded Systems" },
+  { question: "This field uses cryptography and decentralized technology to record transactions.", answer: "Blockchain Development" },
+  { question: "This field enables computers to interpret and understand visual information from the world.", answer: "Computer Vision" },
+];
+
+const App = () => {
+  const [currentCard, setCurrentCard] = useState(0);
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleNextCard = () => {
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * cards.length);
+    } while (randomIndex === currentCard);
+    setCurrentCard(randomIndex);
+    setIsFlipped(false);
+  };
+
+  const handleFlip = () => {
+    setIsFlipped(!isFlipped);
+  };
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    <div className="App">
+      <h1>CS Fields Flashcards</h1>
+      <p>Test your knowledge of computer science fields and disciplines!</p>
+      <p className="card-count">Total Cards: {cards.length}</p>
+      <Flashcard
+        question={cards[currentCard].question}
+        answer={cards[currentCard].answer}
+        isFlipped={isFlipped}
+        onFlip={handleFlip}
+      />
+      <button className="next-btn" onClick={handleNextCard}>Next Card →</button>
+    </div>
+  );
 }
 
-export default App
+export default App;
