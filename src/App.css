@@ -98,3 +98,44 @@ p {
 .next-btn:hover {
   background-color: #c73652;
 }
+
+.flashcard-container.easy .card-front,
+.flashcard-container.easy .card-back {
+  border-color: #4caf50;
+}
+
+.flashcard-container.medium .card-front,
+.flashcard-container.medium .card-back {
+  border-color: #ff9800;
+}
+
+.flashcard-container.hard .card-front,
+.flashcard-container.hard .card-back {
+  border-color: #e94560;
+}
+
+.difficulty-badge {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+}
+
+.difficulty-badge.easy {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+}
+
+.difficulty-badge.medium {
+  background-color: rgba(255, 152, 0, 0.2);
+  color: #ff9800;
+}
+
+.difficulty-badge.hard {
+  background-color: rgba(233, 69, 96, 0.2);
+  color: #e94560;
+}
