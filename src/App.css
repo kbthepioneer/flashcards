@@ -83,22 +83,6 @@ p {
   color: #64ffda;
 }
 
-.next-btn {
-  background-color: #e94560;
-  color: white;
-  border: none;
-  padding: 12px 32px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.next-btn:hover {
-  background-color: #c73652;
-}
-
 .flashcard-container.easy .card-front,
 .flashcard-container.easy .card-back {
   border-color: #4caf50;
@@ -208,6 +192,23 @@ p {
 
 .guess-feedback.incorrect {
   color: #e94560;
+}
+
+.master-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0.5rem 0;
+  transition: background-color 0.2s;
+}
+
+.master-btn:hover {
+  background-color: #388e3c;
 }
 
 .nav-buttons {
