@@ -1,8 +1,8 @@
-# Web Development Project 2 - CS Fields Flashcards
+# Web Development Project 3 - CS Fields Flashcards Part 2
 
 Submitted by: **Kevin Bayona**
 
-This web app: **A Jeopardy-style flashcard app covering 15 computer science fields. Cards show a description clue on the front and reveal the CS field name on the back. Cards are color coded by difficulty (Easy/Medium/Hard) and displayed in a random order.**
+This web app: **An extended Jeopardy-style flashcard app covering 15 computer science fields. Users can type guesses, navigate cards in order, shuffle the deck, track streaks, and mark cards as mastered.**
 
 Time spent: **2** hours spent in total
 
@@ -10,43 +10,49 @@ Time spent: **2** hours spent in total
 
 The following **required** functionality is completed:
 
-- [x] **The app displays the title of the card set, a short description, and the total number of cards**
-  - [x] Title of card set is displayed
-  - [x] A short description of the card set is displayed
-  - [x] The total number of cards in the set is displayed
-- [x] **A single card at a time is displayed**
-  - [x] A single card is displayed at a time
-  - [x] Only one half of the information pair is displayed at a time
-  - [x] Clicking on the card flips it over, showing the back with corresponding information
-  - [x] Clicking on a flipped card again flips it back, showing the front
-- [x] **Clicking the next button displays a random new card**
+- [x] **The user can submit a guess into an input box before seeing the flipside of a card**
+  - [x] Application features a clearly labeled input box with a submit button
+  - [x] Clicking submit with an incorrect answer shows visual feedback that it is wrong
+  - [x] Clicking submit with a correct answer shows visual feedback that it is correct
+- [x] **The user can navigate through an ordered list of cards**
+  - [x] A forward/next button navigates to the next card in sequence
+  - [x] A previous/back button returns to the previous card
+  - [x] Back button is disabled on the first card
+  - [x] Next button is disabled on the last card
 
 The following **optional** features are implemented:
 
-- [x] Cards have different visual styles based on their category
-  - [x] Cards are color coded by difficulty: Easy (green), Medium (orange), Hard (red)
-  - [x] Difficulty badge is displayed on each card
+- [x] Users can use a shuffle button to randomize the order of the cards
+- [x] A user's answer may be counted as correct even when slightly different (fuzzy matching)
+- [x] A counter displays the user's current and longest streak of correct responses
+  - [x] Current streak increments on correct guess
+  - [x] Current streak resets to 0 on incorrect guess
+  - [x] Longest streak updates when current streak exceeds it
+- [x] A user can mark a card as mastered and have it removed from the pool
+  - [x] Mastered cards are removed from the active deck
+  - [x] Mastered card count is displayed
 
 The following **additional** features are implemented:
 
-* [x] Smooth 3D flip animation when clicking a card
-* [x] Cards reset to front side when navigating to next card
+* [x] Cards are color coded by difficulty (Easy/Medium/Hard)
+* [x] 3D flip animation when clicking a card
+* [x] Card counter shows current position in deck
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented required features:
 
-<img src='https://github.com/user-attachments/assets/1408ecfe-d69f-410a-a0ac-048a052e7943' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/user-attachments/assets/c082d5de-41fb-4779-9c59-f68a5bea5267' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with ScreenToGif
 
 ## Notes
 
-Learning how to use useState to track both the current card index and the flipped state simultaneously was the main challenge. Also implemented a do-while loop to ensure the next random card is always different from the current one.
+The main challenge was implementing the master card feature — removing a card from the active deck while keeping the index valid required careful state management with cardOrder array filtering.
 
 ## License
 
-    Copyright 2026 Kevin Bayona
+    Copyright 2026 Kevin Bayona-Galindo
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
